@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>小愛爸爸公益網站</title>
+	<meta name="description" content="商界高端人際網路的跨國跨界交流平台：旨在解決高階商務團體合作以及企業跨境拓展的問題，促使團體與企業發展壯大。快速精準連結到適合人脈，一同創造商業價值。">
+	<meta name="copyright" content="©2021 CiRCLELiNKS 智合圈" />
+	<!-- og begin -->
+	<meta property="og:title" content="跨境商務交流平台: 加速跨境拓展、整合各地資源 | CiRCLELiNKS">
+	<meta property="og:type" content="Website">
+	<meta property="og:url" content="https://www.circles.tw/portal">
+	<meta property="og:image" content="https://www.circles.tw/img/facebook.jpg?v=20210622">
+	<meta property="og:site_name" content="CiRCLELiNKS 跨境商務交流平台">
+	<meta property="og:description"
+		content="商界高端人際網路的跨國跨界交流平台：旨在解決高階商務團體合作以及企業跨境拓展的問題，促使團體與企業發展壯大。快速精準連結到適合人脈，一同創造商業價值。">
+	<!-- og end -->
+
+	<link rel="Shortcut icon" href="/img/favicon.png">
+	<link rel="Bookmark" href="/img/favicon.png">
+	<link rel="stylesheet" href="js/slick/slick.css">
+	<link rel="stylesheet" href="js/slick/slick-theme.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- <script data-search-pseudo-elements defer src="dist/fontawesome-5.15.2/js/all.min.js"></script>  -->
+	<script src="dist/fontawesome-5.15.2/js/all.min.js"></script>
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<footer>
+			<div class="row">
+				<!-- 圖片預留區塊 -->
+				<div class="d-flex col-0 col-lg-3" style="border: px solid red; height: fit-content;">
+				</div>
+				<!-- 右側資訊 -->
+				<div class="flex-column col-12 col-lg-9">
+					<!-- 上 -->
+					<div class="row col-12 mb-0 mb-lg-5">
+						<div class="column col-12 col-lg-5  mb-3 mb-lg-0">
+							<h4>小愛公益樂園/</h4>
+							<h4>SEK基隆創業者空間</h4>
+							<p>20241基隆市義一路18號A棟9樓</p>
+						</div>
+						<div class="row col-12 col-lg-7  mb-3 mb-lg-0">
+							<p class="col-12 col-lg-3">關於我們</p>
+							<p class="col-12 col-lg-3">小愛爸爸介紹</p>
+							<p class="col-12 col-lg-3">公益成果</p>
+							<p class="col-12 col-lg-3">我們的特色</p>
+						</div>
+					</div>
+					<!-- 下 -->
+					<div class="row col-12 mb-0 mb-lg-5">
+						<div class="column col-12 col-lg-5 mb-3 mb-lg-0">
+							<p>專線：02-7751-6020</p>
+							<p>傳真：02-2426-8859</p>
+							<p>email@example.com</p>
+						</div>
+						<div class="column col-12 col-lg-4">
+							<p>營業時間：</p>
+							<p>週一至週五  9:00-17:00</p>
+							<p>週六至週日  休息</p>
+						</div>
+						<!-- fb ig -->
+						<div class="column col-0 col-lg-3"></div>
+					</div>
+				</div>
+			</div>
+			<p class="designed_by mb-5 mb-lg-0">
+				© 2021 | designed by apointdesign
+			</p>
+		</footer>
+	</div>
+
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap4.2.1/popper.min.js"></script>
+	<script src="js/bootstrap4.2.1/bootstrap.min.js"></script>
+	<script src="js/slick/slick.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var Timer = null;
+
+			// 監聽網頁，滾動至350 顯示 sticky_nav
+			$(window).scroll(function () {
+
+				if (Timer) { clearTimeout(Timer) }
+
+				Timer = setTimeout(function () {
+					let scrollTop = $(this).scrollTop();
+
+					if (scrollTop > 350) {
+						$(".sticky_nav").addClass("show")
+					} else {
+						$(".sticky_nav").removeClass("show")
+					}
+				}, 500);
+			})
+
+			// 漢堡
+			$(".navbar-toggler").on("click", function () {
+				// 漢堡切換 icon 和底色
+				$(".navbar-toggler").toggleClass("open")
+				$(".fa-times").toggleClass("show")
+				$(".fa-bars").toggleClass("show")
+				// 設 sticky-nav > visibility: initial;
+				$(".sticky_nav").toggleClass("show_nav")
+			})
+
+			//文章縮放
+			$(".flip").on("click", function () {
+				$(this).parent().toggleClass("unfold")
+			})
+
+			// banner
+			$('.banner_slider').slick({
+				arrows: false,
+				dots: true
+			});
+
+			// 公益成果
+			$('.works_slide').slick({
+				centerMode: true,
+				centerPadding: '350px',
+				slidesToShow: 1,
+				variableWidth: false,
+				arrows: true,
+				dots: true,
+				responsive: [
+					{
+						breakpoint: 1550,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '200px',
+							slidesToShow: 1
+						}
+					},
+					{
+						breakpoint: 992,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '0px',
+							slidesToShow: 1
+						}
+					}
+				]
+			})
+			// 
+			$('.platform_slider').slick({
+				centerMode: true,
+				centerPadding: '25%',
+				slidesToShow: 1,
+				variableWidth: false,
+				arrows: true,
+				dots: true,
+				responsive: [
+					{
+						breakpoint: 576,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '15%',
+							slidesToShow: 1
+						}
+					},
+					{
+						breakpoint: 427,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '10%',
+							slidesToShow: 1
+						}
+					},
+					{
+						breakpoint: 360,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '8%',
+							slidesToShow: 1
+						}
+					}
+				]
+			})
+		})
+
+	</script>
+</body>
+
+</html>

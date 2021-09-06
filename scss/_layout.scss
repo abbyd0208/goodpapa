@@ -1,0 +1,492 @@
+body {
+    background-color: $background;
+}
+
+.wrapper{
+    width: 100%; max-width: 1920px; margin: 0 auto;
+}
+
+h1 {
+    color: $secondary;
+    font-size: 2.875rem;
+    text-align: center;
+    margin-bottom: 80px;
+    &.phone_title {
+        font-size: 2.25rem;
+        display: none;
+    }
+    @include media-breakpoint-down(md) {
+        margin-bottom: 32px;
+        font-size: 3rem;
+    }
+    @include media-breakpoint-down(sm) {
+        text-align: left;
+        &.web_title {
+            display: none;
+        }
+        &.phone_title {
+            display: block;
+        }
+    }
+}
+
+h2 {
+    font-size: 2.5rem;
+    @include media-breakpoint-down(xl) {
+        font-size: 2rem;
+    }
+}
+
+h3 {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    @include media-breakpoint-down(lg) {
+        font-size: 1.5rem;
+    }
+    @include media-breakpoint-down(sm) {
+        font-size: 1.25rem;
+    }
+}
+
+p {
+    font-size: 1.25rem;
+    margin: 0;
+    @include media-breakpoint-down(xl) {
+        font-size: 1rem;
+    }
+}
+
+header {
+    .navbar {
+        background-color: $background;
+        @include basic-shadow;
+        z-index: 1;
+    }
+
+    // rwd 右側按鈕
+    .navbar-toggler {
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        background-color: $secondary;
+
+        border: none;
+        // 取消 bootstrap focus 效果
+        &:focus {
+            outline: none;
+        }
+        &.open {
+            background-color: rgba(0, 0, 0, 0);
+            .fa-times {
+                display: block;
+            }
+            .fa-bars {
+                display: none;
+            }
+        }
+        svg {
+            font-size: 35px;
+            color: #ffffff;
+            display: none;
+            &.show {
+                display: inline-block;
+            }
+        }
+
+        .fa-bars {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .fa-times {
+            font-size: 2.25rem;
+            color: $primary;
+        }
+    }
+    //navbar 左側logo
+    .navbar-brand {
+        img {
+            width: 180px;
+            transition: none;
+            @include media-breakpoint-down(xs) {
+                width: 150px;
+            }
+        }
+    }
+
+    //navbar 共用樣式
+    .navbar-nav {
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .nav-item {
+            position: relative;
+            font-size: 1.25rem;
+            white-space: nowrap;
+            padding: 8px;
+            // 左右四個item
+            a {
+                color: $font-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+            }
+
+            @include media-breakpoint-down(xl) {
+                // font-size: 1.125rem;
+                // padding: 8px 0;
+            }
+        }
+
+        .nav-item._sub_btn a {
+            color: #ffffff;
+        }
+    }
+
+    //navbar
+    .static_nav {
+        position: absolute;
+        width: 100%;
+        height: 228px;
+        top: 0;
+        box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2);
+        @include media-breakpoint-down(xl) {
+            height: 198px;
+        }
+        @include media-breakpoint-down(md) {
+            height: auto;
+        }
+        .navbar-brand {
+            display: none;
+            @include media-breakpoint-down(md) {
+                display: block;
+            }
+        }
+
+        &.navbar-expand-lg .navbar-collapse {
+            justify-content: center;
+
+            .navbar-nav {
+                width: 75%;
+                max-width: 1440px;
+                margin: 40px 0 20px;
+                position: relative;
+                flex-wrap: nowrap;
+                // 兩條直線
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 100px;
+                    position: absolute;
+                    bottom: 50px;
+                    background-color: #707070;
+                    @include media-breakpoint-down(xl) {
+                        height: 80px;
+                    }
+                    @include media-breakpoint-down(md) {
+                        display: none;
+                    }
+                }
+                &::before {
+                    left: 17%;
+                    @include media-breakpoint-down(xl) {
+                        left: 18%;
+                    }
+                }
+                &::after {
+                    left: 82%;
+                    // @include media-breakpoint-down(xl) {
+                    //     left: 82%;
+                    // }
+                }
+                .nav-item {
+                    // 中間logo
+                    &.logo {
+                        margin-top: -30px;
+                        img {
+                            width: 170px;
+                            // @include media-breakpoint-down(xl) {
+                            //     width: 150px;
+                            // }
+                        }
+                        @include media-breakpoint-down(md) {
+                            display: none;
+                        }
+                    }
+                    // 訂閱按鈕
+                    &:last-child {
+                        position: absolute;
+                        z-index: 100;
+                        right: -100px;
+                        top: -30px;
+                        @include media-breakpoint-down(xl) {
+                            top: -10px;
+                        }
+                    }
+
+                    @include media-breakpoint-down(xl) {
+                        transform: scale(0.8);
+                    }
+                    @include media-breakpoint-down(md) {
+                        transform: scale(1);
+                    }
+                }
+
+                @include media-breakpoint-down(md) {
+                    margin: 0 auto;
+                    width: 90%;
+                    align-items: center;
+                    // item rwd
+                    .nav-item {
+                        width: 100%;
+                        img {
+                            display: none;
+                        }
+                        &:nth-child(-n + 4) {
+                            border-bottom: 1px solid $main-gray;
+                        }
+                        // 訂閱按鈕 rwd
+                        &:last-child {
+                            right: 0;
+                            top: 0;
+                            width: fit-content;
+                            position: relative;
+                            margin: -5px 20px 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //fixed navbar
+    .sticky_nav {
+        height: 80px;
+        width: 100%;
+        background-color: #fff6e5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        transform: translate(0, -100%);
+        opacity: 0;
+        transition: all 0.5s ease;
+        box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2);
+        &.show {
+            transform: translate(0, 0);
+            opacity: 1;
+            transition: all 0.5s ease;
+        }
+
+        @include media-breakpoint-down(md) {
+            height: auto;
+            transform: translate(0, -100%);
+            opacity: 0;
+            &.show {
+                transform: translate(0, -100%);
+                opacity: 0;
+            }
+            &.open {
+                transform: translate(0, 0);
+                opacity: 1;
+                transition: all 0.5s ease;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: $font-color;
+        }
+
+        ._sub_btn a {
+            color: white;
+        }
+
+        .contain {
+            height: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            @include media-breakpoint-down(md) {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 15px;
+            }
+        }
+
+        .nav_list {
+            @include media-breakpoint-down(md) {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                margin: auto;
+            }
+        }
+
+        .nav_item {
+            background-color: #fff6e5;
+            text-align: center;
+            padding: 0 20px;
+            display: inline-block;
+            // min-width: 160px;
+            font-size: 1.25rem;
+            @include media-breakpoint-up(lg) {
+                // border: 0px solid red;
+                &:nth-child(-n + 3) {
+                    border-right: 1px solid black;
+                }
+            }
+            @include media-breakpoint-down(lg) {
+                font-size: 1rem;
+            }
+            @include media-breakpoint-down(md) {
+                padding: 8px;
+                font-size: 1.25rem;
+
+                &:nth-child(-n + 3) {
+                    border-bottom: 1px solid black;
+                }
+                &:last-child {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    .sticky_btn {
+        color: white;
+        font-size: 1.5rem;
+        position: fixed;
+        right: 16px;
+        top: 22px;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        outline: none;
+        background-color: #d2754c;
+        border: none;
+        transform: translate(0, -140%);
+        opacity: 0;
+        z-index: 11;
+        box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.2);
+        &.open {
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0;
+            .fa-times {
+                display: block;
+            }
+            .fa-bars {
+                display: none;
+            }
+        }
+        .fa-times {
+            font-size: 2.25rem;
+            color: #7cbade;
+            margin: auto;
+            display: none;
+        }
+        .fa-bars {
+            margin: auto;
+            display: block;
+        }
+        @include media-breakpoint-down(md) {
+            &.show {
+                transform: translate(0, 0);
+                opacity: 1;
+                transition: all 0.5s ease;
+            }
+        }
+    }
+
+    //header動畫
+    .animate {
+        transform: scale(0.8);
+        border: 0;
+        @include media-breakpoint-down(xl) {
+        }
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+
+        &.about {
+            border: 0;
+        }
+    }
+}
+
+footer {
+    position: relative;
+    background-color: $secondary;
+    color: #ffffff;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    // position: relative;
+    @include media-breakpoint-down(xl) {
+        padding-top: 80px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 20px;
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-top: 24px;
+        padding-bottom: 200px;
+    }
+    a {
+        color: inherit;
+    }
+
+    .footer_logo img {
+        width: 280px;
+        margin: 0 auto;
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+        }
+        @include media-breakpoint-down(xl) {
+            position: absolute;
+            width: 250px;
+            right: 10%;
+            top: -15px;
+        }
+
+        @include media-breakpoint-down(md) {
+            // right: 10%;
+            // top: 40px;
+        }
+
+        @include media-breakpoint-down(xs) {
+            display: none;
+        }
+    }
+    .designed_by {
+        padding: 0 15px;
+        text-align: center;
+        @include media-breakpoint-down(md) {
+            text-align: start;
+        }
+    }
+
+    // footer 動畫 (從main移過來 0901 Alvin)
+    .footer_animate {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0%;
+        overflow: hidden;
+        .animate.footer_end {
+            transform: scale(0.9) translate(0px, 33%);
+            transform-origin: left bottom;
+            @include media-breakpoint-down(xl) {
+                transform: scale(0.7) translate(0px, 30%);
+            }
+        }
+    }
+}
