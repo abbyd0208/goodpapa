@@ -3,7 +3,7 @@ body {
 }
 
 .wrapper{
-    width: 100%; max-width: 1920px; margin: 0 auto;
+   
 }
 
 h1 {
@@ -69,8 +69,9 @@ header {
         width: 44px;
         height: 44px;
         background-color: $secondary;
-
         border: none;
+        position: relative;
+        z-index: 100;
         // 取消 bootstrap focus 效果
         &:focus {
             outline: none;
@@ -151,6 +152,7 @@ header {
         width: 100%;
         height: 228px;
         top: 0;
+        left: 0;
         box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2);
         @include media-breakpoint-down(xl) {
             height: 198px;
@@ -271,7 +273,7 @@ header {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 10;
+        z-index: 500;
         transform: translate(0, -100%);
         opacity: 0;
         transition: all 0.5s ease;
@@ -374,7 +376,7 @@ header {
         border: none;
         transform: translate(0, -140%);
         opacity: 0;
-        z-index: 11;
+        z-index: 500;
         box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.2);
         &.open {
             background-color: rgba(0, 0, 0, 0);
@@ -427,6 +429,7 @@ footer {
     color: #ffffff;
     padding-top: 80px;
     padding-bottom: 30px;
+    overflow: hidden;
     // position: relative;
     @include media-breakpoint-down(xl) {
         padding-top: 80px;
@@ -442,7 +445,13 @@ footer {
     a {
         color: inherit;
     }
+    .social{
+        &.icon_ig,&.icon_fb{display: inline-block; width: 40px; height: 40px; }
+        &.icon_ig{ background: url(../images/icon_ig.svg) center center no-repeat; background-size: cover; margin-right: 20px;}
+        &.icon_fb{ background: url(../images/icon_fb.svg) center center no-repeat; background-size: cover; }
+    }
 
+    hr{ width: 100%; background-color: #fff; height: 1px;}
     .footer_logo img {
         width: 280px;
         margin: 0 auto;
@@ -466,6 +475,27 @@ footer {
             display: none;
         }
     }
+
+    .footer_menu{
+        display: flex;
+    
+        .item{
+            display: inline-block;
+            word-break:keep-all ;
+            padding: 0 3%;
+            border-right:1px solid #fff ;
+            text-align: center;
+            a{ display: inline-block; font-size: 1.2rem;}
+            &:nth-last-of-type(1){
+                border: 0px;
+            }
+        }
+        @include media-breakpoint-down(md) {
+          display: block;
+          .item{ display: block; text-align: left; border-right:0px ; padding: 0;}
+        }
+    }
+
     .designed_by {
         padding: 0 15px;
         text-align: center;
@@ -476,7 +506,7 @@ footer {
 
     // footer 動畫 (從main移過來 0901 Alvin)
     .footer_animate {
-        width: 100%;
+        // width: 100%;
         position: absolute;
         left: 0;
         bottom: 0%;
