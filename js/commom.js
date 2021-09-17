@@ -59,6 +59,8 @@ $(document).ready(function () {
         lazyLoad: 'ondemand',
         arrows: false,
         dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
     });
 
     // 公益成果
